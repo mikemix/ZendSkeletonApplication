@@ -6,4 +6,5 @@ doctrine
 phpunit
 spiffy
 symfony
+ZF2
 autoload.php
