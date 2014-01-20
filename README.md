@@ -6,6 +6,7 @@ forked from zendframework/ZendSkeletonApplication
 * This Application is integrated with Doctrine2
 * Testing environment is set, using fully automated, in-memory SQlite as database
 * Example entity already there with the unit test covering it
+* Example repository included as well
 * SpiffyNavigation module installed and already working (see navigation.config.php)
 * Application config was split to several files to increase maintanability
 
