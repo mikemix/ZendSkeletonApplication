@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass="ExampleRepository")
+ * @ORM\Entity(repositoryClass="Application\Repository\Example")
  * @ORM\Table(name="example")
  */
 class Example
