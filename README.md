@@ -18,4 +18,4 @@ to get started quickly:
 4. create tests (TDD always!) then doctrine entities
 5. to generate database schema from your entities run ```vendor/bin/doctrine-module orm:schema-tool:update --force```
 6. point your vhost to appdirectory/public to get started
-7. you can start using php built-in server as well by going to public directory and running ```php -S 127.0.0.0:80```
+7. you can start using php built-in server as well by going to the ```public``` directory and running ```php -S 127.0.0.0:80```
