@@ -6,7 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use DateTime;
 
 /**
- * @ORM\Entity(repositoryClass="Application\Repository\Example")
+ * Example entity.
+ * 
+ * Always write table name in the Table annotation.
+ * Without it, this code will fail to work on Unix servers (which is case sensitive),
+ * altough will continue to work in the Windows environment (which is case insensitive).
+ * 
+ * @ORM\Entity(repositoryClass="Application\Repository\ExampleRepository")
  * @ORM\Table(name="example")
  */
 class Example
