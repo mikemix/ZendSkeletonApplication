@@ -19,11 +19,6 @@ abstract class TestCase extends AbstractHttpControllerTestCase
         $tool = new SchemaTool($this->em);
         $classes=array();
         foreach (glob(__DIR__.'/../../src/Application/Entity/*.php') as $filename) {
-            // ommit repositories
-            if (strpos($filename, 'Repository') !== false) {
-                continue;
-            }
-            
             $classname=basename($filename, '.php');
             $classes[] = $this->em->getClassMetadata(sprintf('Application\Entity\%s', $classname));
         }
