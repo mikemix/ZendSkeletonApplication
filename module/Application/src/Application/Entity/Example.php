@@ -29,6 +29,6 @@ class Example
      */
     public function getId()
     {
-        return $id;
+        return $this->id;
     }
 }
