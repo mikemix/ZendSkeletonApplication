@@ -7,23 +7,26 @@ use Doctrine\ORM\Tools\SchemaTool;
 abstract class TestCase extends AbstractHttpControllerTestCase
 {
     /** @var \Doctrine\ORM\EntityManager */
-    protected $em;
+    private $em;
 
     public function setUp()
     {
         $this->setApplicationConfig(include __DIR__ . '/../../../../config/application.config.php');
-
-        /** @var \Doctrine\ORM\EntityManager em */
-        $this->em = $this->getApplicationServiceLocator()->get('Doctrine\ORM\EntityManager');
-
-        $tool = new SchemaTool($this->em);
-        $classes=array();
-        foreach (glob(__DIR__.'/../../src/Application/Entity/*.php') as $filename) {
-            $classname=basename($filename, '.php');
-            $classes[] = $this->em->getClassMetadata(sprintf('Application\Entity\%s', $classname));
-        }
-        $tool->createSchema($classes);
-
         parent::setUp();
+    }
+    
+    /**
+     * @return \Doctrine\ORM\EntityManager
+     */
+    protected function getDoctrine()
+    {
+        if (! $this->em) {
+            $this->em = $this->getApplicationServiceLocator()->get('Doctrine\ORM\EntityManager');
+            
+            $schemaTool = new SchemaTool($this->em);
+            $schemaTool->createSchema($this->em->getMetadataFactory()->getAllMetadata());
+        }
+    
+        return $this->em;
     }
 }
